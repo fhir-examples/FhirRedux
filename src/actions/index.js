@@ -1,17 +1,17 @@
 export const LOGIN = 'LOGIN';
-export function login(patients){
+export function login(patient){
   return{
 
 type: LOGIN,
-patients: patients
+patient: patient
   }
 }
 
 export const PATIENT_SELECTED = 'PATIENT_SELECTED';
-export function patientSelected(patients){
+export function patientSelected(patient){
   return{
     type: PATIENT_SELECTED,
-    patients
+    patient
   }
 }
 

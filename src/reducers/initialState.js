@@ -1,5 +1,6 @@
 export default {
-  patients: "ok",
-  doc: [],
-  videos: []
+  patient: "",
+  dob: "",
+  mrn: ""
+
 };

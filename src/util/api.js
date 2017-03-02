@@ -18,11 +18,13 @@ export const smart = window.FHIR.client({
                 type: 'none'
               }
             });
-          let patientInfo = smarter.patient.read();
+        let patientInfo = smarter.patient.read();
         let patientName =  patientInfo.then((p)=> {
                   let name = p.name[0];
-                  let formatted = name.given.join(" ") + " " + name.family.join(" ");
-                  return formatted
+                  let mrn = p.id
+                  let dob= p.birthDate
+                  let fullName = name.given.join(" ") + " " + name.family.join(" ");
+                  return {name:fullName, mrn: mrn, dob: dob}
         })
         return patientName
       }

@@ -10,7 +10,7 @@ class App extends Component {
 
     }
 
-//dispatch a login and logut action. 
+//dispatch a login and logut action.
 
   login() {
       this.props.dispatch(login());
@@ -20,21 +20,21 @@ class App extends Component {
     this.props.dispatch(logout());
   }
   render() {
-    const { patients, doc } = this.props;
+    const { patient, dob, mrn } = this.props;
     return (
       <div className="App">
         <div className="App-header">
 
-          <h2> to React </h2>
-          <h4> {patients}</h4>
+          <h2> Patient Banner </h2>
+          <h4> Name: {patient}   DOB: {dob}   MRN: {mrn}</h4>
             <input
             type="submit"
-            value="login"
+            value="Allen"
             onClick={this.login}
           />
           <input
           type="submit"
-          value="logout"
+          value="Aaron"
           onClick={this.logout}
         />
         </div>
@@ -45,8 +45,10 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = ({ patients, videos, doc }) => ({
-  patients: patients.patients
+const mapStateToProps = ({ patient}) => ({
+  patient: patient.patient,
+  mrn: patient.mrn,
+  dob: patient.dob,
 });
 
 export default connect(mapStateToProps)(App);

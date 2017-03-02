@@ -7,8 +7,8 @@ import {smart, api} from '../util/api.js'
 export function* patientSelecteds(id) {
   const patientName = yield call(api.getPatientName, id)
   console.log(patientName)
-  const patients = patientName
-  yield put(actions.patientSelected(patients))
+  const patient = patientName
+  yield put(actions.patientSelected(patient))
 }
 
 
