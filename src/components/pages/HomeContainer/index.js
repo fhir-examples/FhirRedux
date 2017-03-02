@@ -6,18 +6,21 @@ class App extends Component {
   constructor() {
       super();
       this.login = this.login.bind(this);
-      this.logout = this.logout.bind(this);
-
+      this.aaron = this.aaron.bind(this);
+      this.allen = this.allen.bind(this);
     }
 
 //dispatch a login and logut action.
 
-  login() {
-      this.props.dispatch(login());
+  login(event) {
+      this.props.dispatch(login(this.query.value));
   }
 
-  logout(){
-    this.props.dispatch(logout());
+  aaron(){
+    this.props.dispatch(login("9995679"));
+  }
+  allen(){
+    this.props.dispatch(login("99912345"));
   }
   render() {
     const { patient, dob, mrn } = this.props;
@@ -30,13 +33,23 @@ class App extends Component {
             <input
             type="submit"
             value="Allen"
-            onClick={this.login}
+            onClick={this.allen}
           />
           <input
           type="submit"
           value="Aaron"
-          onClick={this.logout}
+          onClick={this.aaron}
         />
+        <input
+              type="text"
+              ref={ref => (this.query = ref)}
+            />
+            <input
+              type="submit"
+         className="btn btn-primary"
+              value="search"
+              onClick={this.login}
+            />
         </div>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.

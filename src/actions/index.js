@@ -1,9 +1,8 @@
 export const LOGIN = 'LOGIN';
-export function login(patient){
+export function login(id){
   return{
-
 type: LOGIN,
-patient: patient
+id
   }
 }
 
@@ -16,9 +15,9 @@ export function patientSelected(patient){
 }
 
 export const LOGOUT = 'LOGOUT';
-export function logout(actions){return{
+export function logout(id){return{
 
 type: LOGOUT,
-actions
+id
   }
 }

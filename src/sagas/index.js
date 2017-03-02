@@ -4,15 +4,24 @@ import* as actions from '../actions'
 import {browserHistory} from 'react-router'
 import {smart, api} from '../util/api.js'
 
-export function* patientSelecteds(id) {
+export function* patientSelecteds({id}) {
+  console.log(id)
   const patientName = yield call(api.getPatientName, id)
-  console.log(patientName)
+
+  const patient = patientName
+  yield put(actions.patientSelected(patient))
+}
+
+export function* patientSelected(id) {
+  console.log(id)
+  const patientName = yield call(api.getPatientName, id)
+
   const patient = patientName
   yield put(actions.patientSelected(patient))
 }
 
 
 export default function* userSaga(){
-  yield takeEvery(actions.LOGIN, patientSelecteds, "99912345");
-  yield takeEvery(actions.LOGOUT, patientSelecteds, "9995679");
+  yield takeEvery(actions.LOGIN, patientSelecteds);
+  yield takeEvery(actions.LOGOUT, patientSelecteds);
 };
