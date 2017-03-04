@@ -4,12 +4,13 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 70px;
+
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: grey;
+  height: 170px;
   padding: 20px;
   color: white;
 }
@@ -18,7 +19,39 @@
   font-size: large;
 }
 
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 70px;
+
+}
+
+.Banner {
+  text-align: cetner;
+}
+
+
+.Banner-header h4{
+  height: 10px;
+  margin-left: 20px;
+  padding: 10px;
+  color: white;
+  justify-content: space-around;
+
+}
+
+
+.Banner-header {
+  background-color: grey;
+  height: 120px;
+  padding: 20px;
+  color: white;
+}
+
+.Banner-intro {
+  font-size: large;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to { transform: rotate(190deg); }
 }
