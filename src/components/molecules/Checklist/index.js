@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import ContentCreate from 'material-ui/svg-icons/content/create';
+import ActionCheckCircle from 'material-ui/svg-icons/action/check-circle';
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -18,7 +19,7 @@ const muiTheme = getMuiTheme({
   }
 })
 
-class CardPatient extends Component {
+class Checklist extends Component {
     render() {
     const { patient, dob, mrn, tele, state, city } = this.props;
       return (
@@ -29,18 +30,13 @@ class CardPatient extends Component {
       subtitle=""
     />
 
-  <CardTitle title={patient}  subtitle={dob} />
+    <CardTitle title={patient}  subtitle={dob} />
     <CardText>
-      Location {city}, {state}
-    </CardText>
-    <CardText>
-      Telephone Number {tele}
+      Checklist {city}, {state}
     </CardText>
 
     <CardActions>
-      <FloatingActionButton >
-      <ContentCreate />
-    </FloatingActionButton>
+      <ActionCheckCircle />
     </CardActions>
 
   </Card>
@@ -55,4 +51,4 @@ const mapStateToProps = ({ patient}) => ({
   state: patient.state,
   city: patient.city,
 });
-export default  connect(mapStateToProps)(CardPatient);
+export default  connect(mapStateToProps)(Checklist);

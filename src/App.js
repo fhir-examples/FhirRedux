@@ -6,7 +6,7 @@ import {NavigationItem} from './components/atoms/Link/index.js'
 import {Link} from './components/atoms/index.js'
 import LoginContainer from './components/pages/LoginContainer/index.js'
 import PatientSearch from './components/molecules/PatientSearch/index.js'
-
+import NavBar from './components/molecules/NavBar/index.js'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 class App extends Component {
@@ -18,10 +18,10 @@ class App extends Component {
 
     return (
         <div>
+          <NavBar />
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-            <LoginContainer />
             <PatientSearch />
         </div>
 

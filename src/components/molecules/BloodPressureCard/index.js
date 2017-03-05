@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {blood} from '../../../actions/index.js';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -8,7 +9,7 @@ import {green100, green500, green700} from 'material-ui/styles/colors';
 import { connect } from 'react-redux';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import ContentCreate from 'material-ui/svg-icons/content/create';
+import ActionTimeline from 'material-ui/svg-icons/action/timeline';
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -18,9 +19,20 @@ const muiTheme = getMuiTheme({
   }
 })
 
-class CardPatient extends Component {
+class BloodPressureCard extends Component {
+  constructor() {
+      super();
+      this.onSelectVitals = this.onSelectVitals.bind(this);
+
+    }
+
+  onSelectVitals(id) {
+    console.log(id)
+    this.props.dispatch(blood(id));
+    }
     render() {
-    const { patient, dob, mrn, tele, state, city } = this.props;
+    const { blood, patient, mrn} = this.props;
+    
       return (
   <MuiThemeProvider muiTheme={muiTheme}>
   <Card>
@@ -29,17 +41,13 @@ class CardPatient extends Component {
       subtitle=""
     />
 
-  <CardTitle title={patient}  subtitle={dob} />
-    <CardText>
-      Location {city}, {state}
-    </CardText>
-    <CardText>
-      Telephone Number {tele}
-    </CardText>
+  <CardTitle title="Blood Pressure"  subtitle={patient} />
 
     <CardActions>
-      <FloatingActionButton >
-      <ContentCreate />
+      <FloatingActionButton
+        onClick={this.onSelectVitals.bind(this,mrn)}
+        >
+      <ActionTimeline />
     </FloatingActionButton>
     </CardActions>
 
@@ -48,11 +56,8 @@ class CardPatient extends Component {
 )}
 };
 const mapStateToProps = ({ patient}) => ({
+  blood: patient.bloodData,
   patient: patient.patient,
-  mrn: patient.mrn,
-  dob: patient.dob,
-  tele: patient.tele,
-  state: patient.state,
-  city: patient.city,
+  mrn: patient.mrn
 });
-export default  connect(mapStateToProps)(CardPatient);
+export default  connect(mapStateToProps)(BloodPressureCard);

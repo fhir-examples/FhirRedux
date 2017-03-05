@@ -9,6 +9,8 @@ import {syncHistoryWithStore} from'react-router-redux'
 import HomeContainer from './components/pages/HomeContainer'
 import LoginContainer from './components/pages/LoginContainer'
 import PatientContainer from './components/pages/PatientContainer'
+import PreOpContainer from './components/pages/PreOpContainer'
+import VitalsContainer from './components/pages/VitalsContainer'
 
 const Root = () => {
 const store = configureStore()
@@ -18,6 +20,8 @@ const store = configureStore()
       <Route path="/" component={App}>
         <IndexRoute component={HomeContainer}/>
         <Route path='patient' component={PatientContainer} />
+        <Route path='preop' component={PreOpContainer} />
+        <Route path='vitals' component={VitalsContainer} />
         </Route>
         <Route path='login' component={LoginContainer}>
         </Route>

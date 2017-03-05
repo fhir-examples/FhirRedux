@@ -9,8 +9,8 @@
 }
 
 .App-header {
-  background-color: grey;
-  height: 170px;
+  background-color: #8e8eef;
+  height: 70px;
   padding: 20px;
   color: white;
 }
@@ -41,7 +41,7 @@
 
 
 .Banner-header {
-  background-color: grey;
+  background-color: #8e8eef;
   height: 120px;
   padding: 20px;
   color: white;

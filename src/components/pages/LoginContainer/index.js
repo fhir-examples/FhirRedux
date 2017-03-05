@@ -43,7 +43,10 @@ class LoginContainer extends Component {
               <Link to={'/'}>Home </Link>
               </MenuItem>
             <MenuItem onTouchTap={this.handleClose}>
-              <Link to={'/patient'}>Patient </Link>
+              <Link to={'/patient'}>Profile </Link>
+            </MenuItem>
+            <MenuItem onTouchTap={this.handleClose}>
+              <Link to={'/preop'}>PreOp </Link>
             </MenuItem>
             <MenuItem onTouchTap={this.handleClose}>
             <Link to={'/login'}>Logout </Link>

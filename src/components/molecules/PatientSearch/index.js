@@ -18,9 +18,6 @@ const muiTheme = getMuiTheme({
 class PatientSearch extends Component {
   constructor() {
       super();
-      this.login = this.login.bind(this);
-      this.aaron = this.aaron.bind(this);
-      this.allen = this.allen.bind(this);
       this.onUpdateInput = this.onUpdateInput.bind(this);
     this.state = {
       inputValue : ''
@@ -29,19 +26,11 @@ class PatientSearch extends Component {
 
 //dispatch a login and logut action.
 
-  login(event) {
-    console.log(this.query.value)
-      this.props.dispatch(login(this.query.value));
-  }
+
   onUpdateInput(inputValue) {
     this.props.dispatch(login(inputValue));
     }
-  aaron(){
-    this.props.dispatch(login("9995679"));
-  }
-  allen(){
-    this.props.dispatch(login("99912345"));
-  }
+
   render() {
     const { patient, dob, mrn } = this.props;
     return (
@@ -64,6 +53,9 @@ const mapStateToProps = ({ patient}) => ({
   patient: patient.patient,
   mrn: patient.mrn,
   dob: patient.dob,
+  tele: patient.tele,
+  state: patient.state,
+  city: patient.city,
 });
 
 export default connect(mapStateToProps)(PatientSearch);
