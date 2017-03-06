@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {login, logout} from '../../../actions/index.js';
+import {login, blood} from '../../../actions/index.js';
 import AutoComplete from 'material-ui/AutoComplete';
 import MenuItem from 'material-ui/MenuItem';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -29,10 +29,11 @@ class PatientSearch extends Component {
 
   onUpdateInput(inputValue) {
     this.props.dispatch(login(inputValue));
+    this.props.dispatch(blood(inputValue));
     }
 
   render() {
-    const { patient, dob, mrn } = this.props;
+    const { name, dob, mrn } = this.props;
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
 
@@ -50,7 +51,7 @@ class PatientSearch extends Component {
   }
 }
 const mapStateToProps = ({ patient}) => ({
-  patient: patient.patient,
+  name: patient.name,
   mrn: patient.mrn,
   dob: patient.dob,
   tele: patient.tele,

@@ -43,13 +43,13 @@ class PatientBanner extends Component {
     this.props.dispatch(login("99912345"));
   }
   render() {
-    const { patient, dob, mrn } = this.props;
+    const { name, dob, mrn } = this.props;
     return (
       <div className="Banner">
         <div className="Banner-header">
 
           <h2> Patient Banner </h2>
-          <h4> Name: {patient}   DOB: {dob}   MRN: {mrn}</h4>
+          <h4> Name: {name}   DOB: {dob}   MRN: {mrn}</h4>
 
         </div>
       </div>
@@ -58,7 +58,7 @@ class PatientBanner extends Component {
   }
 }
 const mapStateToProps = ({ patient}) => ({
-  patient: patient.patient,
+  name: patient.name,
   mrn: patient.mrn,
   dob: patient.dob,
 });

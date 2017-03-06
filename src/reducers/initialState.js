@@ -1,6 +1,9 @@
 export default {
-  patient: "",
+  patient:{
+  name: "Jane Doe",
   dob: "",
-  mrn: ""
-
+  mrn: "",
+  b: 1,
+  bloodData: [['Date', 'BloodPressure'],[2,3],[4,5]]
+}
 };

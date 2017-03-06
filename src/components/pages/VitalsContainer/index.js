@@ -7,7 +7,6 @@ class VitalsContainer extends Component {
   render() {
     return (
       <div>
-        hi
         <BloodPressureCard />
       </div>
     );

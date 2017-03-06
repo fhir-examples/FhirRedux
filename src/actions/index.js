@@ -26,6 +26,13 @@ export function bloodSelected(blood){
     blood
   }
 }
+export const BLOOD_ADD = 'BLOOD_ADD';
+export function bloodAdd(patient){
+  return{
+    type: BLOOD_ADD,
+    patient
+  }
+}
 export const LOGOUT = 'LOGOUT';
 export function logout(id){return{
 

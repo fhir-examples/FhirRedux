@@ -21,7 +21,7 @@ const muiTheme = getMuiTheme({
 
 class Checklist extends Component {
     render() {
-    const { patient, dob, mrn, tele, state, city } = this.props;
+    const { name, dob, mrn, tele, state, city } = this.props;
       return (
   <MuiThemeProvider muiTheme={muiTheme}>
   <Card>
@@ -30,7 +30,7 @@ class Checklist extends Component {
       subtitle=""
     />
 
-    <CardTitle title={patient}  subtitle={dob} />
+  <CardTitle title={name}  subtitle={dob} />
     <CardText>
       Checklist {city}, {state}
     </CardText>
@@ -44,7 +44,7 @@ class Checklist extends Component {
 )}
 };
 const mapStateToProps = ({ patient}) => ({
-  patient: patient.patient,
+  name: patient.name,
   mrn: patient.mrn,
   dob: patient.dob,
   tele: patient.tele,

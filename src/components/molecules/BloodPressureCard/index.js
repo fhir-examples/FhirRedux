@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {blood} from '../../../actions/index.js';
+import {bloodAdd} from '../../../actions/index.js';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import ActionTimeline from 'material-ui/svg-icons/action/timeline';
+import { Chart } from 'react-google-charts';
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -27,21 +28,26 @@ class BloodPressureCard extends Component {
     }
 
   onSelectVitals(id) {
-    console.log(id)
-    this.props.dispatch(blood(id));
+
+
+  setInterval( _ =>{
+this.props.dispatch(bloodAdd(id))
+}, 2000 )
+
     }
     render() {
-    const { blood, patient, mrn} = this.props;
-    
+    const { bloodData, name, mrn,b} = this.props;
+
       return (
   <MuiThemeProvider muiTheme={muiTheme}>
+    <div>
   <Card>
     <CardHeader
       title=" "
       subtitle=""
     />
 
-  <CardTitle title="Blood Pressure"  subtitle={patient} />
+  <CardTitle title="Blood Pressure"  subtitle={name} />
 
     <CardActions>
       <FloatingActionButton
@@ -50,14 +56,35 @@ class BloodPressureCard extends Component {
       <ActionTimeline />
     </FloatingActionButton>
     </CardActions>
-
+    <Chart
+        chartType="ScatterChart"
+        data={bloodData}
+        options={{}}
+        graph_id="ScatterChart"
+        width="100%"
+        height="400px"
+        legend_toggle
+      />  <Chart
+            chartType="ScatterChart"
+            data={bloodData}
+            options={{}}
+            graph_id="ScatterChart1"
+            width="100%"
+            height="400px"
+            legend_toggle
+          />
   </Card>
+{b}
+
+
+</div>
 </MuiThemeProvider>
 )}
 };
 const mapStateToProps = ({ patient}) => ({
-  blood: patient.bloodData,
-  patient: patient.patient,
-  mrn: patient.mrn
+  bloodData: patient.bloodData,
+  name: patient.name,
+  mrn: patient.mrn,
+  b: patient.b
 });
 export default  connect(mapStateToProps)(BloodPressureCard);

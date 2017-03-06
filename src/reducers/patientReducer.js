@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import {LOGIN, LOGOUT, PATIENT_SELECTED, BLOOD_SELECTED} from '../actions/index.js';
+import {LOGIN, LOGOUT, PATIENT_SELECTED, BLOOD_SELECTED, BLOOD_ADD} from '../actions/index.js';
 
 
 export default function (state = initialState.patient, action) {
@@ -9,10 +9,19 @@ export default function (state = initialState.patient, action) {
       return { ...state};
       case BLOOD_SELECTED:
         return { ...state, bloodData: blood.sys, bloodDia: blood.dia};
+        case BLOOD_ADD:
+        let thi = state.bloodData
+        if(state.b > 10){
+        thi.splice(1,1)
+      }
+        let ran =Math.floor((Math.random() * 80) + 20)
+        thi.push([state.b,ran])
+        console.log(thi)
+          return { ...state, bloodData: thi, b:state.b+1};
     case LOGOUT:
       return { ...state};
     case PATIENT_SELECTED:
-      return { ...state, patient: patient.name, mrn: patient.mrn, dob: patient.dob,  state: patient.state, city: patient.city, tele: patient.tele  };
+      return { ...state, name: patient.name, mrn: patient.mrn, dob: patient.dob,  state: patient.state, city: patient.city, tele: patient.tele  };
     default:
       return { ...state };
   }

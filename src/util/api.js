@@ -54,9 +54,11 @@ getBloodPressure(id){
    .then(function(bps) {
        var data=[];
        var datas=[];
+       var bloodSys=[['Date', 'BloodPressure']];
        var x=[];
        var dia=0
        var sys=0;
+       [1,2],[3,3]
       bps.data.entry.forEach(function(bp){            // how can we access diffrent datat from the model for a set of blood pressures do it for one blood pressure
              var blood= bp.resource.component;
 
@@ -65,16 +67,19 @@ x.push(bp.resource.effectiveDateTime)
             if(b.code.coding[0].code=="8480-6" ){
 
            datas.push(b.valueQuantity.value)
+           x.push(b.valueQuantity.value)
+           bloodSys.push(x)
               sys=b.valueQuantity.value
+           x=[]
            }
             if(b.code.coding[0].code=="8462-4" ){
 
            data.push(b.valueQuantity.value)}
              dia=b.valueQuantity.value
              })
-             console.log(sys+"/"+dia)
+             console.log(bloodSys)
        });
-       return {sys:datas, dia:data}
+       return {sys:bloodSys, dia:data}
      })
      return bloodP
   }
