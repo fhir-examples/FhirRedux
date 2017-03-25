@@ -23,7 +23,7 @@ const muiTheme = getMuiTheme({
 })
 //Sadd a diolog box and nested with other react components to make it modualr and easy to create. such as patient search
 
-class Checklist extends Component {
+class ImageUpload extends Component {
 
   constructor() {
       super();
@@ -65,16 +65,16 @@ handleClose = () => {
 
   <CardTitle title={name}  subtitle={dob} />
     <CardText>
-      Checklist {city}, {state}
+      Wound Care Image date
     </CardText>
 
     <CardActions>
       <ActionCheckCircle />
     </CardActions>
     <div>
-            <RaisedButton label="Upload Document" onTouchTap={this.handleOpen} />
+            <RaisedButton label="Upload Image" onTouchTap={this.handleOpen} />
             <Dialog
-              title="Insurance claims"
+              title="Wound"
               actions={actions}
               modal={false}
               open={this.state.open}
@@ -82,7 +82,7 @@ handleClose = () => {
             >
             <PatientSearch />
             <br/>
-              The actions in this window were passed in as an array of React objects.
+              Uplaod an image of your wound to have it analyzed
             </Dialog>
           </div>
   </Card>
@@ -97,4 +97,4 @@ const mapStateToProps = ({ patient}) => ({
   state: patient.state,
   city: patient.city,
 });
-export default  connect(mapStateToProps)(Checklist);
+export default  connect(mapStateToProps)(ImageUpload);

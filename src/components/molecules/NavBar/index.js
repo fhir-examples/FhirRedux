@@ -58,6 +58,9 @@ class NavBar extends Component {
         <Link to={'/patient'}>Profile </Link>
       </MenuItem>
       <MenuItem onTouchTap={this.handleClose}>
+        <Link to={'/woundcare'}>WoundCare </Link>
+      </MenuItem>
+      <MenuItem onTouchTap={this.handleClose}>
         <Link to={'/preop'}>PreOp </Link>
       </MenuItem>
       <MenuItem onTouchTap={this.handleClose}>

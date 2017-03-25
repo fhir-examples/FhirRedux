@@ -11,6 +11,8 @@ import LoginContainer from './components/pages/LoginContainer'
 import PatientContainer from './components/pages/PatientContainer'
 import PreOpContainer from './components/pages/PreOpContainer'
 import VitalsContainer from './components/pages/VitalsContainer'
+import WoundCareContainer from './components/pages/WoundCareContainer'
+
 
 const Root = () => {
 const store = configureStore()
@@ -20,6 +22,7 @@ const store = configureStore()
       <Route path="/" component={App}>
         <IndexRoute component={HomeContainer}/>
         <Route path='patient' component={PatientContainer} />
+        <Route path='woundcare' component={WoundCareContainer} />
         <Route path='preop' component={PreOpContainer} />
         <Route path='vitals' component={VitalsContainer} />
         </Route>

@@ -36,6 +36,7 @@ export const smart = window.FHIR.client({
                   let mrn = p.id
                   let dob= p.birthDate
                   let fullName = name.given.join(" ") + " " + name.family.join(" ");
+                  let patient = {name:fullName, mrn: mrn, dob: dob, state: state, city: city, tele: teleNumber}
                   return {name:fullName, mrn: mrn, dob: dob, state: state, city: city, tele: teleNumber}
         })
         return patientName

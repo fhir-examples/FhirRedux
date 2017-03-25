@@ -65,7 +65,7 @@ this.props.dispatch(bloodAdd(id))
         height="400px"
         legend_toggle
       />  <Chart
-            chartType="ScatterChart"
+            chartType="BarChart"
             data={bloodData}
             options={{}}
             graph_id="ScatterChart1"

@@ -11,7 +11,7 @@ export default function (state = initialState.patient, action) {
         return { ...state, bloodData: blood.sys, bloodDia: blood.dia};
         case BLOOD_ADD:
         let thi = state.bloodData
-        if(state.b > 10){
+        if(state.b > 19){
         thi.splice(1,1)
       }
         let ran =Math.floor((Math.random() * 80) + 20)
