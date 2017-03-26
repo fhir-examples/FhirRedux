@@ -12,6 +12,13 @@ type: BLOOD,
 id
   }
 }
+export const RDATA = 'RDATA';
+export function rdata(rdata){
+  return{
+type: RDATA,
+rdata
+  }
+}
 export const PATIENT_SELECTED = 'PATIENT_SELECTED';
 export function patientSelected(patient){
   return{

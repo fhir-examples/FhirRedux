@@ -12,7 +12,8 @@ import PatientContainer from './components/pages/PatientContainer'
 import PreOpContainer from './components/pages/PreOpContainer'
 import VitalsContainer from './components/pages/VitalsContainer'
 import WoundCareContainer from './components/pages/WoundCareContainer'
-
+import RContainer from './components/pages/RContainer'
+import RHome from './components/pages/RHome'
 
 const Root = () => {
 const store = configureStore()
@@ -25,6 +26,8 @@ const store = configureStore()
         <Route path='woundcare' component={WoundCareContainer} />
         <Route path='preop' component={PreOpContainer} />
         <Route path='vitals' component={VitalsContainer} />
+        <Route path='r' component={RContainer} />
+        <Route path='rhome' component={RHome} />
         </Route>
         <Route path='login' component={LoginContainer}>
         </Route>

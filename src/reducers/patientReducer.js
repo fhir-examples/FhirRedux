@@ -1,9 +1,9 @@
 import initialState from './initialState';
-import {LOGIN, LOGOUT, PATIENT_SELECTED, BLOOD_SELECTED, BLOOD_ADD} from '../actions/index.js';
+import {LOGIN, LOGOUT, PATIENT_SELECTED, RDATA, BLOOD_SELECTED, BLOOD_ADD} from '../actions/index.js';
 
 
 export default function (state = initialState.patient, action) {
-  const { patient, blood } = action
+  const { patient, blood, rdata } = action
   switch (action.type) {
     case LOGIN:
       return { ...state};
@@ -22,6 +22,8 @@ export default function (state = initialState.patient, action) {
       return { ...state};
     case PATIENT_SELECTED:
       return { ...state, name: patient.name, mrn: patient.mrn, dob: patient.dob,  state: patient.state, city: patient.city, tele: patient.tele  };
+    case RDATA:
+      return { ...state, name: rdata.name, email: rdata.email, data: rdata.data };
     default:
       return { ...state };
   }

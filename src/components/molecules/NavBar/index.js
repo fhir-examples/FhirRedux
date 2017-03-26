@@ -67,7 +67,7 @@ class NavBar extends Component {
         <Link to={'/vitals'}>Vitals </Link>
       </MenuItem>
       <MenuItem onTouchTap={this.handleClose}>
-      <Link to={'/login'}>Logout </Link>
+      <Link to={'/r'}>R </Link>
       </MenuItem>
     </Drawer>
   </div>
