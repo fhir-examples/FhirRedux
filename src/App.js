@@ -21,7 +21,8 @@ class App extends Component {
           <NavBar />
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          
+            <PatientSearch />
         </div>
 
         </div>

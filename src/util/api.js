@@ -1,3 +1,4 @@
+import {database, storage} from '../util/firebase.js'
 export const smart = window.FHIR.client({
       serviceUrl: 'https://fhir-open-api-dstu2.smarthealthit.org',
        patientId: "99912345",
@@ -41,6 +42,32 @@ export const smart = window.FHIR.client({
         })
         return patientName
       },
+      // get a list of urls that you want to add and store them in an array of pics.
+
+    getPics(id){
+    //   let storageRef = storage.ref()
+    // let pic =  storageRef.child('images/hgh.png').getDownloadURL().then(function(url) {
+    //     // console.log(url)
+    //     return url
+    //   })
+// var pic = "ds"
+//     let tw = database.ref("userphoto/"+id)
+//    tw.once('value').then(function(snapshot) {
+//      pic = snapshot.val()
+//     return pic
+//   })
+
+      // let pics = ["https://firebasestorage.googleapis.com/v0/b/fhirreact.appspot.com/o/images%2Fhg.png?alt=media&token=30539e4b-4c80-4509-b67e-23992a9897a4","https://firebasestorage.googleapis.com/v0/b/fhirreact.appspot.com/o/images%2Fhgh.png?alt=media&token=12c78ac1-8bbd-42b0-98a8-64bd3373a184"]
+    },
+    // snap.forEach((child) => {
+    //
+    // database.ref("photo/-"+child.key).on('value', (snapshot) => {
+    //       let my = snapshot.val();
+    //       pic.push(my.link)
+    //
+    //                                     });
+    //
+    //                         });
 getBloodPressure(id){
 
   let smarter = window.FHIR.client({

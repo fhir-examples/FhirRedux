@@ -1,9 +1,11 @@
 import initialState from './initialState';
-import {LOGIN, LOGOUT, PATIENT_SELECTED, RDATA, BLOOD_SELECTED, BLOOD_ADD} from '../actions/index.js';
+import {LOGIN, LOGOUT, PATIENT_SELECTED, RDATA, BLOOD_SELECTED, BLOOD_ADD, PICS_SELECTED} from '../actions/index.js';
+import {database} from '../util/firebase.js'
 
 
 export default function (state = initialState.patient, action) {
-  const { patient, blood, rdata } = action
+  // get the action varible for the data you want to update with
+  const { patient, blood, rdata, pics } = action
   switch (action.type) {
     case LOGIN:
       return { ...state};
@@ -23,7 +25,15 @@ export default function (state = initialState.patient, action) {
     case PATIENT_SELECTED:
       return { ...state, name: patient.name, mrn: patient.mrn, dob: patient.dob,  state: patient.state, city: patient.city, tele: patient.tele  };
     case RDATA:
+    // database.ref('photo/').push({
+    //   photo: rdata.data,
+    //   user: rdata.name,
+    //   date: "9-20-2017",
+    // });
       return { ...state, name: rdata.name, email: rdata.email, data: rdata.data };
+    case PICS_SELECTED:
+        console.log(pics)
+        return { ...state, pics: pics };
     default:
       return { ...state };
   }

@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import ContentCreate from 'material-ui/svg-icons/content/create';
-
+import {database, storage} from '../../../util/firebase.js'
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: cyan500,
@@ -19,8 +19,9 @@ const muiTheme = getMuiTheme({
 })
 
 class CardPatient extends Component {
+
     render() {
-    const { name, dob, mrn, tele, state, city } = this.props;
+    const { name, dob, mrn, tele, state, city, pics } = this.props;
       return (
   <MuiThemeProvider muiTheme={muiTheme}>
   <Card>
@@ -35,6 +36,9 @@ class CardPatient extends Component {
     </CardText>
     <CardText>
       Telephone Number {tele}
+    </CardText>
+    <CardText>
+     <img src={pics} />
     </CardText>
 
     <CardActions>
@@ -54,5 +58,6 @@ const mapStateToProps = ({ patient}) => ({
   tele: patient.tele,
   state: patient.state,
   city: patient.city,
+  pics: patient.pics
 });
 export default  connect(mapStateToProps)(CardPatient);

@@ -5,6 +5,14 @@ type: LOGIN,
 id
   }
 }
+// dispatch an action
+export const PIC = 'PIC';
+export function pic(id){
+  return{
+type: PIC,
+id
+  }
+}
 export const BLOOD = 'BLOOD';
 export function blood(id){
   return{
@@ -24,6 +32,13 @@ export function patientSelected(patient){
   return{
     type: PATIENT_SELECTED,
     patient
+  }
+}
+export const PICS_SELECTED = 'PICS_SELECTED';
+export function picsSelected(pics){
+  return{
+    type: PICS_SELECTED,
+    pics
   }
 }
 export const BLOOD_SELECTED = 'BLOOD_SELECTED';

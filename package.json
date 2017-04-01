@@ -8,6 +8,7 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "fhirclient": "^0.1.9",
+    "firebase": "^3.7.3",
     "material-ui": "^0.17.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

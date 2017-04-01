@@ -14,6 +14,7 @@ import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import PatientSearch from '../PatientSearch/index.js'
+import {pic} from '../../../actions/index.js';
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: cyan500,
@@ -27,10 +28,21 @@ class ImageUpload extends Component {
 
   constructor() {
       super();
+      this.onUpdateInput = this.onUpdateInput.bind(this);
       this.state = {
           open: false,
+          inputValue : ''
         };
     }
+
+
+  //dispatch a login and logut action.
+
+
+    onUpdateInput(id) {
+    
+      this.props.dispatch(pic(id));
+      }
 
   handleOpen = () => {
   this.setState({open: true});
@@ -40,7 +52,7 @@ handleClose = () => {
   this.setState({open: false});
 };
     render() {
-    const { name, dob, mrn, tele, state, city } = this.props;
+    const { name, dob, mrn, tele, state, city,pics } = this.props;
 
     const actions = [
       <FlatButton
@@ -66,13 +78,13 @@ handleClose = () => {
   <CardTitle title={name}  subtitle={dob} />
     <CardText>
       Wound Care Image date
-    </CardText>
 
-    <CardActions>
-      <ActionCheckCircle />
-    </CardActions>
+    </CardText>
+      {pics.map((pic) =>
+        <img src ={pic}/>
+      )}
     <div>
-            <RaisedButton label="Upload Image" onTouchTap={this.handleOpen} />
+            <RaisedButton label="Upload Image" onTouchTap={() => this.onUpdateInput(mrn)}/>
             <Dialog
               title="Wound"
               actions={actions}
@@ -96,5 +108,6 @@ const mapStateToProps = ({ patient}) => ({
   tele: patient.tele,
   state: patient.state,
   city: patient.city,
+  pics: patient.pics
 });
 export default  connect(mapStateToProps)(ImageUpload);

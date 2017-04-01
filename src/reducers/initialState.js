@@ -4,6 +4,7 @@ export default {
   dob: "",
   mrn: "",
   b: 1,
-  bloodData: [['Date', 'BloodPressure'],[2,3],[4,5]]
+  bloodData: [['Date', 'BloodPressure'],[2,3],[4,5]],
+  pics: ["ok","pp"]
 }
 };

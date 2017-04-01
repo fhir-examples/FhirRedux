@@ -7,7 +7,6 @@ class WoundCareContainer extends Component {
   render() {
     return (
       <div>
-        wound
         <ImageUpload />
       </div>
     );
